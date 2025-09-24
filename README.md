@@ -7,7 +7,7 @@ Rodriguez, Rocio Gisele Dni 35418532 email rogisele1990@gmail.com
 Bryan Daniel, Tolosa Dni 43739527 email czsa156@gmail.com
 
 
-[SCRIPT SQL (db_peaky_blinders.sql)](scripts/db_peaky_blinders.sql)
+[SCRIPT SQL (db_peaky_blinders.sql)](scripts/http://localhost/phpmyadmin/index.php?route=/database/structure&db=db_peaky_blinders))
 
 
 <img width="764" height="321" alt="image" src="https://github.com/user-attachments/assets/f5c91d6e-5de1-41dd-8777-74e7ed19744f" />
