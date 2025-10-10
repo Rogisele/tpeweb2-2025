@@ -1,12 +1,10 @@
 <?php
 require_once './app-serie/controllers/chapters.controller.php';
-/**
- * 
- * require_once './app-serie/controllers/auth.controller.php';
- * require_once './app-serie/middlewares/guard.middleware.php';
- * require_once './app-serie/middlewares/session.middleware.php';
+require_once './app-serie/controllers/auth.controller.php';
+require_once './app-serie/middlewares/guard.middleware.php';
+require_once './app-serie/middlewares/session.middleware.php';
  
- */
+ 
 
 /** TABLA DE RUTEO
  * 
@@ -61,7 +59,7 @@ switch ($params[0]) {
         $request = (new GuardMiddleware())->run($request);
        $controller = new ChaptersController();
         $id = $params[1];
-        $controller->updateChapter($request);
+        $controller->updateChapter($request);// me marca error en este parametro
         break;
     case 'login':
         $controller = new AuthController();
