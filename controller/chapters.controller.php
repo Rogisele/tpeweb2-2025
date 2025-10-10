@@ -1,6 +1,6 @@
 <?php
 require_once './app-serie/models/chapters.model.php';
-require_once './app-serie/views/chapters.view.php';
+require_once './app-serie/views/chapters.views.php';
 
 
 
@@ -27,11 +27,11 @@ class ChaptersController{
 
     function addChapter($request){
         if (!isset($_POST['title']) || empty($_POST['title'])) {
-            return $this->view->showError('Error: falta completar el titulo', $request->user);
+            return $this->view->showError('Error: falta completar el titulo', $request->user);// me marca error en lo que esta entre parentesis
         }
 
         if (!isset($_POST['description']) || empty($_POST['description'])) {
-            return $this->view->showError('Error: falta completar la descripcion');
+            return $this->view->showError('Error: falta completar la descripcion');// me marca error en lo que esta entre parentesis
         }
 
         // obtengo los datos del formulario
@@ -69,16 +69,16 @@ class ChaptersController{
         $chapter = $this->model->getChapter($id);
 
         if (!$chapter) {
-            return $this->view->showError("No existe el capitulo");
+            return $this->view->showError("No existe el capitulo");// me marca error en lo que esta entre parentesis
         }
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Si el formulario ha sido enviado
             if (empty($_POST['Titulo'])) {
-                return $this->view->showError('Por favor ingrese el título');
+                return $this->view->showError('Por favor ingrese el título');// me marca error en lo que esta entre parentesis
             }
             if (empty($_POST['Descripcion'])) {
-                return $this->view->showError('Por favor ingrese la descripcion');
+                return $this->view->showError('Por favor ingrese la descripcion');// me marca error en lo que esta entre parentesis
             }
              
             //Obtengo los nuevos valores
@@ -103,3 +103,4 @@ class ChaptersController{
 
 
 ?>
+
