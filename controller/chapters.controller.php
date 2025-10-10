@@ -1,6 +1,6 @@
 <?php
 require_once './app-serie/models/chapters.model.php';
-require_once './app-serie/view/chapters.view.php';
+require_once './app-serie/views/chapters.view.php';
 
 
 
@@ -94,6 +94,7 @@ class ChaptersController{
 
 
 }
+
 
 
 
