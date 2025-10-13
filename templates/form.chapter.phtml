@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 require_once 'templates/layouts/header.phtml'; ?>
 
@@ -36,4 +37,44 @@ require_once 'templates/layouts/header.phtml'; ?>
     </div>
 </div>
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+=======
+<?php 
+require_once 'templates/layouts/header.phtml'; ?>
+
+<div class="container">
+    <h1><?= $chapter ? 'update' : 'add' ?> Capitulo</h1>
+
+    <form action="<?= $chapter ? BASE_URL . 'new-chapter/' . $chapter->ID_capitulos : BASE_URL . 'add-chapter/' ?>" method="POST">
+
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Título</label>
+                <input required name="Titulo" type="text" class="form-control" value="<?=$chapter ? $chapter->Titulo : ''?>">
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input required name="Descripcion" type="text" class="form-control" value="<?=$chapter ? $chapter->Descripcion : ''?>">
+                </div>
+            </div>
+        </div>
+
+        
+    <div class="form-group">
+        <label for="ID_serie">Serie</label>
+        <select id="ID_serie" name="ID_genero" class="form-select">
+            <?php foreach ($series as $serie): ?>
+                <option value="<?= $serie->ID_serie ?>" <?= $chapter && $chapter->ID_serie == $chapter->ID_serie ? 'selected' : '' ?>>
+                    <?=($serie->Nombre) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+>>>>>>> 85e377fb6f6f34256474223ed6f6df8e3a19c421
 </form>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php require 'templates/layout/header.phtml' ?>
 
 <!-- formulario de alta de tarea -->
@@ -24,3 +25,31 @@
 </form>
 
 <?php require 'templates/layout/footer.phtml' ?>
+=======
+<?php require 'templates/layout/header.phtml' ?>
+
+<!-- formulario de alta de tarea -->
+<form action="do_login" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input required name="user" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input required name="password" type="password" class="form-control">
+            </div>
+        </div>
+        <div class="col-9 text-danger">
+            <?php if (!empty($error)): ?>
+                <?=$error?>
+            <?php endif; ?>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
+</form>
+
+<?php require 'templates/layout/footer.phtml' ?>
+>>>>>>> 85e377fb6f6f34256474223ed6f6df8e3a19c421
