@@ -1,0 +1,30 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+
+<div class="row">
+
+    <?php if($user): ?>
+        <div class="col-md-4">
+            <div class="card px-4">
+                <?php require_once './templates/form.add.chapter.phtml' ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="col-md-8">
+        <ul class="list-group">
+            <?php foreach($chapters as $chapter) { ?>
+                <li class="list-group-item item-task ">
+                    <div class="label">
+                        <b><?= $chapter->Titulo ?></b> | (Descripcion <?= $chapter->Descripcion ?>)
+                    </div>
+                    
+                </li>
+            <?php } ?>
+        </ul>
+
+        <p class="mt-3"><small>Mostrando <?=$count?> Capitulos</small></p>
+    </div>
+</div>
+
+<?php require 'templates/layout/footer.phtml' ?>

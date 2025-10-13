@@ -1,10 +1,13 @@
 <?php
+class ChaptersView{
 
-class SerieView{
 
-    public function listTemporadas($request){
+
+
+
+    public function listChapters($request){
         
-        require './templates/list-Temporadas.phtml';
+        require './templates/list-chapters.phtml';
 
     }
     
@@ -21,3 +24,4 @@ class SerieView{
 
 
 ?>
+
