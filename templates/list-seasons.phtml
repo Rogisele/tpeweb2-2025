@@ -1,7 +1,6 @@
 <?php require 'layouts/header.phtml' ?>
 
 <div class="row">
-
     <?php if(!empty($user->id)): ?>
         <div class="col-md-4">
             <div class="card px-4">
@@ -12,20 +11,20 @@
 
     <div class="col-md-8">
         <ul class="list-group">
-            <?php foreach($chapters as $chapter) { ?>
+            <?php foreach($seasons as $season) { ?>
                 <li class="list-group-item item-task ">
                     <div class="label">
-                        <b><?= htmlspecialchars($chapter->Titulo) ?> | <?= htmlspecialchars($chapter->Descripcion) ?> | <?= htmlspecialchars($chapter->Nombre) ?></b>
+                        <b><?= htmlspecialchars($season->Name) ?> | <?= htmlspecialchars($season->$premiere_date) ?> | <?= htmlspecialchars($season->Producer) ?> | <?= htmlspecialchars($season->image) ?></b>
                     </div>
                     <div class="actions">
-                        <a href="<?= BASE_URL . 'list-chapters' . $chapter->ID_capitulos ?>" type="button" class='btn btn-success btn-sm ml-auto'>Descripcion</a>
+                        <a href="<?= BASE_URL . 'list-seasons' . $chapter->ID_serie ?>" type="button" class='btn btn-success btn-sm ml-auto'>Descripcion</a>
                     </div>
                     
                 </li>
             <?php } ?>
         </ul>
 
-        <p class="mt-3"><small>Mostrando <? $count?> Capitulos</small></p>
+        <p class="mt-3"><small>Mostrando <? $count?> Temporadas</small></p>
     </div>
 </div>
 

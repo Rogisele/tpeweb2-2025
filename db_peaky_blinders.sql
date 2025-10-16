@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2025 a las 19:01:47
+-- Tiempo de generación: 24-09-2025 a las 19:38:58
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,42 +45,22 @@ INSERT INTO `capitulos` (`ID_capitulos`, `Titulo`, `Descripcion`, `ID_serie_fk`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `temporada`
+-- Estructura de tabla para la tabla `serie`
 --
 
-CREATE TABLE `temporada` (
+CREATE TABLE `serie` (
   `ID_serie` int(11) NOT NULL,
   `Nombre` varchar(25) NOT NULL,
   `Fecha_estreno` date NOT NULL,
-  `Productora` varchar(100) NOT NULL,
-  `imagen` varchar(255) DEFAULT NULL
+  `Productora` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `temporada`
+-- Volcado de datos para la tabla `serie`
 --
 
-INSERT INTO `temporada` (`ID_serie`, `Nombre`, `Fecha_estreno`, `Productora`, `imagen`) VALUES
-(3, 'Peaky Blinders', '2013-09-10', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_cruxvYUrdnxvkziGe4DVWeBnJtEEJCwn8IV_axycdZf7R-9ibsTude_3jOdDLw-njfKW2Q-YRfnhraiYnNWb0SSeNgDoF6oiORAv9-wM');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `Usuario` varchar(200) NOT NULL,
-  `contraseña` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `Usuario`, `contraseña`) VALUES
-(1, 'webadmin', '$2y$10$.cgeRjA95UxLT5/Oc2hbb.cZ9KPc4bYx.0k0i3ENTFxGNLIIxQFnS');
+INSERT INTO `serie` (`ID_serie`, `Nombre`, `Fecha_estreno`, `Productora`) VALUES
+(3, 'Peaky Blinders', '2013-09-10', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions');
 
 --
 -- Índices para tablas volcadas
@@ -94,16 +74,10 @@ ALTER TABLE `capitulos`
   ADD KEY `ID_serie_fk` (`ID_serie_fk`);
 
 --
--- Indices de la tabla `temporada`
+-- Indices de la tabla `serie`
 --
-ALTER TABLE `temporada`
+ALTER TABLE `serie`
   ADD PRIMARY KEY (`ID_serie`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -116,16 +90,10 @@ ALTER TABLE `capitulos`
   MODIFY `ID_capitulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `temporada`
+-- AUTO_INCREMENT de la tabla `serie`
 --
-ALTER TABLE `temporada`
+ALTER TABLE `serie`
   MODIFY `ID_serie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -135,7 +103,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `capitulos`
 --
 ALTER TABLE `capitulos`
-  ADD CONSTRAINT `fk_capitulo_serie` FOREIGN KEY (`ID_serie_fk`) REFERENCES `temporada` (`ID_serie`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_capitulo_serie` FOREIGN KEY (`ID_serie_fk`) REFERENCES `serie` (`ID_serie`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
