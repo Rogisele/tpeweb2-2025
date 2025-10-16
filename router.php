@@ -23,7 +23,7 @@ require_once './middlewares/session.middleware.php';
 
 
 
-session_start();
+
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -35,8 +35,8 @@ if (!empty( $_GET['action'])) {
 
 
 $params = explode('/', $action);
-
-$request = new StdClass();
+$ChaptersController = new ChaptersController();
+$request = new SeasonController();
 $request = (new SessionMiddleware())->run($request);
 
 

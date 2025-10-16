@@ -1,8 +1,8 @@
 <?php
 
 class ChaptersView{
-    
-    public function listChapters($chapters){
+
+    public function listChapters($chapters, $seasons){
         
         require './templates/list-chapters.phtml';
 

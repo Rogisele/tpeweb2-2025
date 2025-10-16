@@ -1,0 +1,18 @@
+<?php require './layouts/header.phtml'?>
+<form action="editarTemporada/<?=$id?>" method="POST">
+  <div class="mb-3">
+    <label for="temporada" class="form-label">Editar Nueva Temporada</label>
+    <input type="text" class="form-control" id="ID_serie" aria-describedby="emailHelp" name="temporada">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Gama</label>
+    <select name="gama" id="" class="form-select form-select-sm" aria-label="Small select example">
+      <option value=""> </option>
+      <option value=""> </option>
+      <option value=""> </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<?php require './layouts/footer.phtml'?>

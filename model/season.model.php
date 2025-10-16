@@ -30,9 +30,9 @@ class SerieModel{
         $query->execute([$Name, $premiere_date, $Producer, $image]);
         return $this->db->lastInsertId();
     }
-    function updateSeason($Name, $premiere_date, $Producer, $image) {
+    function updateSeason($id, $Name, $premiere_date, $Producer, $image) {
         $query = $this->db->prepare('UPDATE temporada SET Nombre = ?, Fecha_estreno = ?, Productora = ?, imagen = ? WHERE ID_serie = ?');
-        $query->execute([$Name, $premiere_date, $Producer, $image]);
+        $query->execute([$id, $Name, $premiere_date, $Producer, $image]);
     }
     function removeSeason($id) {
         $query = $this->db->prepare('DELETE from temporada where id = ?');

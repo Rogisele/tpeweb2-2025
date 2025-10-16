@@ -40,13 +40,13 @@ class SeasonController{
     }
 
     // Editar categoría
-    public function updateSerie($Name, $premiere_date, $Producer, $image) {
+    public function updateSerie($id) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nombre = $_POST['Nombre'];
-            $imagen = $_FILES['Imagen']['name'];
-            
-
-            $this->model->updateSeason($$Name, $premiere_date, $Producer, $image);
+            $Name = $_POST['Nombre'];
+            $premiere_date = $_POST['Fecha_estreno'];
+            $Producer = $_POST['Productora'];
+            $image = $_FILES['Imagen']['name'];
+            $this->model->updateSeason($id, $Name, $premiere_date, $Producer, $image);
             header('Location: ' . BASE_URL . 'temporada');
         }
     }
