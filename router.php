@@ -46,6 +46,10 @@ switch ($params[0]) {
         $controller = new ChaptersController();
         $controller->listChapters($request);
         break;
+ case 'ShowChapter':
+        $controller = new ChaptersController();
+        $controller->ShowChapter($chapter);
+        break;
     case 'list-season':
         $controller = new SeasonController();
         $controller->showSeason($request);
