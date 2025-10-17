@@ -7,6 +7,10 @@ class ChaptersView{
         require './templates/list-chapters.phtml';
 
     }
+    public function ShowChapter($chapter){
+        require './templates/list-chapters.phtml';
+
+    }
     public function showError($error) {
         echo "<h1>$error</h1>";
     }
