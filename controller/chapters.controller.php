@@ -14,6 +14,13 @@ class ChaptersController{
        $this-> view= new ChaptersView();
        
     }
+     function ShowChapter($id){
+        
+        $chapter = $this-> model-> getChapter($id);
+        
+        $this->view->ShowChapter($chapter);
+        var_dump($chapter);// me marca false
+    }
 
     function listChapters($request){
         // pido los capitulos al modelo
