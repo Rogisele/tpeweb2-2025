@@ -15,7 +15,7 @@ class ChaptersController{
        
     }
 
-    function listChapters(){
+    function listChapters($request){
         // pido los capitulos al modelo
 
         $chapters = $this-> model-> getAllchapters();
@@ -23,7 +23,7 @@ class ChaptersController{
 
         //se las envio a la vista
     
-        $this->view->listChapters($chapters,$count);
+        $this->view->listChapters($chapters,$count,$request->user);
     }
 
     function addChapter($request){

@@ -10,7 +10,7 @@ class SerieModel{
 
     function getAllseasons(){
         //ejecuto la consulta sql
-        $query = $this->db->prepare('SELECT * FROM serie');
+        $query = $this->db->prepare('SELECT * FROM temporada');
         $query -> execute();
 
         //obtengo los resultados de la consulta

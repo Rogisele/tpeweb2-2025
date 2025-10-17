@@ -11,13 +11,13 @@
 
     <div class="col-md-8">
         <ul class="list-group">
-            <?php foreach($seasons as $season) { ?>
+            <?php  foreach($seasons as $season) { ?>
                 <li class="list-group-item item-task ">
                     <div class="label">
-                        <b><?= htmlspecialchars($season->Name) ?> | <?= htmlspecialchars($season->$premiere_date) ?> | <?= htmlspecialchars($season->Producer) ?> | <?= htmlspecialchars($season->image) ?></b>
+                        <b><?= htmlspecialchars($season->Nombre) ?> | <?= htmlspecialchars($season->Fecha_estreno) ?> | <?= htmlspecialchars($season->Productora) ?> | <img src=" <?= $season->imagen ?>" alt=""></b>
                     </div>
                     <div class="actions">
-                        <a href="<?= BASE_URL . 'list-seasons' . $chapter->ID_serie ?>" type="button" class='btn btn-success btn-sm ml-auto'>Descripcion</a>
+                        <a href="<?= BASE_URL . 'list-seasons' . $season->ID_serie ?>" type="button" class='btn btn-success btn-sm ml-auto'>Descripcion</a>
                     </div>
                     
                 </li>

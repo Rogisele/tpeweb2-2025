@@ -13,9 +13,9 @@ class SeasonController{
     }
 
     // Mostrar todas las categorías
-    public function showSeason() {
+    public function showSeason($request) {
         $seasons = $this->model->getAllseasons();
-        $this->view->showSeasons($seasons);
+        $this->view->showSeasons($seasons, $request->user);
     }
 
     // Agregar una nueva categoría

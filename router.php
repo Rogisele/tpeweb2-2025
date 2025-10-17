@@ -36,8 +36,9 @@ if (!empty( $_GET['action'])) {
 
 $params = explode('/', $action);
 $ChaptersController = new ChaptersController();
-$request = new SeasonController();
-$request = (new SessionMiddleware())->run($request);
+$authCotroller= new AuthController();
+$seasonController = new SeasonController();
+$request = (new SessionMiddleware())->run($authCotroller);
 
 
 switch ($params[0]) {
@@ -45,11 +46,10 @@ switch ($params[0]) {
         $controller = new ChaptersController();
         $controller->listChapters($request);
         break;
-    case 'showSeasons':
+    case 'list-season':
         $controller = new SeasonController();
-        $controller->showSeason();
+        $controller->showSeason($request);
         break;
-
     case 'new-chapter':
         $request = (new GuardMiddleware())->run($request);
         $controller = new ChaptersController();
@@ -65,19 +65,19 @@ switch ($params[0]) {
         $request = (new GuardMiddleware())->run($request);
        $controller = new ChaptersController();
         $id = $params[1];
-        $controller->updateChapter($request);// me marca error en este parametro
+        $controller->updateChapter($request, $id);// me marca error en este parametro
         break;
     case 'login':
-        $controller = new AuthController();
+        $controller = $authCotroller;
         $controller->showLogin($request);
         break;
     case 'do-login':
-        $controller = new AuthController();
+        $controller = $authCotroller;
         $controller->doLogin($request);
         break;
     case 'logout':
         $request = (new GuardMiddleware())->run($request);
-        $controller = new AuthController();
+        $controller = $authCotroller;
         $controller ->logout($request);
         break;
     default: 
