@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2025 a las 18:19:26
+-- Tiempo de generación: 22-10-2025 a las 01:17:14
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,7 @@ CREATE TABLE `capitulos` (
   `ID_capitulos` int(11) NOT NULL,
   `Titulo` varchar(25) NOT NULL,
   `Descripcion` text NOT NULL,
+  `Personajes` varchar(200) NOT NULL,
   `ID_temporada_fk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -38,10 +39,14 @@ CREATE TABLE `capitulos` (
 -- Volcado de datos para la tabla `capitulos`
 --
 
-INSERT INTO `capitulos` (`ID_capitulos`, `Titulo`, `Descripcion`, `ID_temporada_fk`) VALUES
-(10, 'Episodio 1', 'Un visitante misterioso aparece en medio de las celebraciones y pone en peligro a la familia el día de la boda tan esperada de Grace y Thomas. Además, Arthur conoce a una mujer.', 7),
-(12, 'Episodio 2', 'Descripción: Un visitante misterioso aparece en medio de las celebraciones y pone en peligro a la familia el día de la boda tan esperada de Grace y Thomas. Además, Arthur conoce a una mujer.', 3),
-(13, 'Episodio 1', 'Episodio 1 Un visitante misterioso aparece en medio de las celebraciones y pone en peligro a la familia el día de la boda tan esperada de Grace y Thomas. Además, Arthur conoce a una mujer.', 3);
+INSERT INTO `capitulos` (`ID_capitulos`, `Titulo`, `Descripcion`, `Personajes`, `ID_temporada_fk`) VALUES
+(10, 'Episodio 1', 'Un visitante misterioso aparece en medio de las celebraciones y pone en peligro a la familia el día de la boda tan esperada de Grace y Thomas. Además, Arthur conoce a una mujer.', ' Grace, Thomas y Arthur Shelvy,Freddie Thorne, Billy Kimber.', 7),
+(11, 'Episodio 1', 'Thomas arregla una carrera de caballos para provocar a un capo local y comienza una guerra con familia gitana. El inspictor campbell lleva a cabo una redada.', 'Thomas Shelby,Johnny Dogs, Inspector Campbell', 10),
+(12, 'Episodio 1', 'Thomas Shelby se acerca a Billy Kimber para llevar el negocio de carreras de caballos y empieza una pelea con los Lees, una familia gitana. Además, se reúne con el inspector Campbell para hablar de las armas robadas.', 'Thomas Shelby,Billy Kimber, inspector Campbell.', 3),
+(13, 'episodio 2', 'Thomas está furioso al descubrir que Ada y Freddie están casados. Además, viaja a Cheltenham junto a Grace para estar más cerca de Billy Kimber.', 'Thomas y Ada Shelby, Grace y Billy Kimber.', 10),
+(14, 'Episodio 2', 'Thomas enfrenta a un jefe del IRA que busca vengar la muerte de su primo, Campbell se acerca a las armas robadas, y Grace tiene que decidir dónde está su lealtad.', 'Thomas Shelby, Grace, Campbell', 3),
+(15, 'Episodio 2', 'Mientras que Thomas se prepara para la batalla, los secretos se revelan y la familia tiene que hacer frente a los problemas que los han separado.', 'Thomas, Ada y Arthur Shelby, Polly Grace', 7),
+(16, 'Episodio 3', 'Tommy prepara el crimen más audaz de su carrera y enfrenta a sus peores miedos. Vive su mayor pesadilla y necesita a su familia más cerca que nunca pero no está seguro de poder confiar en ellos.', '', 8);
 
 -- --------------------------------------------------------
 
@@ -64,10 +69,8 @@ CREATE TABLE `temporadas` (
 INSERT INTO `temporadas` (`ID_temporada`, `Nombre`, `Fecha_estreno`, `Productora`, `imagen`) VALUES
 (3, 'Peaky Blinders', '2013-09-10', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_cruxvYUrdnxvkziGe4DVWeBnJtEEJCwn8IV_axycdZf7R-9ibsTude_3jOdDLw-njfKW2Q-YRfnhraiYnNWb0SSeNgDoF6oiORAv9-wM'),
 (7, 'Temporada 3', '2025-10-30', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWn4sVm6ybDVah8bejE8OH3NCbZBv_UNbAyfLm--FqOn2MLDB4Q-nBd9uQleHUD_xbS_Lm9tVYB1OKB5hkdyO9RdcKLIDRR98KADOP0HqqkQ'),
-(8, 'Temporada 5', '2025-10-24', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWn4sVm6ybDVah8bejE8OH3NCbZBv_UNbAyfLm--FqOn2MLDB4Q-nBd9uQleHUD_xbS_Lm9tVYB1OKB5hkdyO9RdcKLIDRR98KADOP0HqqkQ'),
-(11, 'Temp 2', '2025-10-26', 'Harry', 'https://es.web.img2.acsta.net/pictures/18/03/14/14/20/1756999.jpg'),
-(12, 'Temporada 4', '2025-10-03', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://cdn.webshopapp.com/shops/268192/files/433182622/tommy-shelby.jpg'),
-(13, 'Temp 6', '2025-11-08', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWn4sVm6ybDVah8bejE8OH3NCbZBv_UNbAyfLm--FqOn2MLDB4Q-nBd9uQleHUD_xbS_Lm9tVYB1OKB5hkdyO9RdcKLIDRR98KADOP0HqqkQ');
+(8, 'Temporada 4', '2025-10-24', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWn4sVm6ybDVah8bejE8OH3NCbZBv_UNbAyfLm--FqOn2MLDB4Q-nBd9uQleHUD_xbS_Lm9tVYB1OKB5hkdyO9RdcKLIDRR98KADOP0HqqkQ'),
+(10, 'Temporada 1', '2013-09-12', 'BBC Studios, Caryn Mandabach Productions y Tiger Aspect Productions', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWn4sVm6ybDVah8bejE8OH3NCbZBv_UNbAyfLm--FqOn2MLDB4Q-nBd9uQleHUD_xbS_Lm9tVYB1OKB5hkdyO9RdcKLIDRR98KADOP0HqqkQ');
 
 -- --------------------------------------------------------
 
@@ -119,13 +122,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `capitulos`
 --
 ALTER TABLE `capitulos`
-  MODIFY `ID_capitulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_capitulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `temporadas`
 --
 ALTER TABLE `temporadas`
-  MODIFY `ID_temporada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_temporada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
