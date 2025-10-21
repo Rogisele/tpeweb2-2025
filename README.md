@@ -23,17 +23,16 @@ El sistema de usuarios permite dos modos de interacción:
 
 ## :gear: Tecnologías Utilizadas
 
-- **Frontend:** HTML5, CSS3, PHTML 
+- **Frontend:** HTML5, CSS3  
 - **Backend:** PHP  
 - **Base de datos:** MySQL  
 - **Servidor local recomendado:** XAMPP o Laragon  
 
----
-## 🗃️ Diagrama de Base de Datos
+--- :date: Relacion de las tablas
 
-<img width="617" height="376" alt="Relacion de tablas" src="https://github.com/user-attachments/assets/af981014-aca8-46d6-9b5d-1115dbf6fdf5" />
+<img width="617" height="376" alt="Relacion de tablas" src="https://github.com/user-attachments/assets/12f03cf9-9f07-41f3-80a9-e8177b412c54" />
 
-## 👥 Autores
+## :busts_in_silhouette: Autores
+Rodríguez Rocío Gisele — rogisele1990@gmail.com
+Bryan Daniel Tolosa — czsa156@gmail.com
 
-- **Rodríguez Rocío Gisele — rogisele1990@gmail.com
-- **Bryan Daniel Tolosa — czsa156@gmail.com
