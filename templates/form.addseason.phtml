@@ -1,0 +1,24 @@
+<h5 class="mb-3">Agregar Temporada</h5>
+<form action="<?= BASE_URL ?>add-season" method="POST">
+  <div class="mb-3">
+    <label for="Nombre" class="form-label">Nombre</label>
+    <input name="Nombre" type="text" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="Fecha_estreno" class="form-label">Fecha Estreno</label>
+    <input name="Fecha_estreno" type="date" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="Productora" class="form-label">Productora</label>
+    <input name="Productora" type="text" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="Imagen" class="form-label">URL de Imagen</label>
+    <input name="Imagen" type="text" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Agregar</button>
+</form>

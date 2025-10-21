@@ -1,0 +1,40 @@
+<?php require 'layouts/header.phtml'; ?>
+
+<main class="container mt-4">
+  <h2>Temporada por capitulos</h2>
+
+  <!-- Selector de temporada -->
+  <form method="GET" action="<?= BASE_URL ?>home" class="mb-3">
+    <select name="season_id" onchange="this.form.submit()" class="form-select w-50">
+      <option value="">Seleccione una temporada</option>
+      <?php foreach ($seasons as $season): ?>
+        <option value="<?= $season->ID_temporada ?>" <?= ($season->ID_temporada == ($_GET['season_id'] ?? '')) ? 'selected' : '' ?>>
+          <?= htmlspecialchars($season->Nombre) ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+  </form>
+
+  <!-- Mostrar capítulos -->
+  <?php if (!empty($chapters)): ?>
+    <p class="text-muted">Mostrando <?= count($chapters) ?> capítulo<?= count($chapters) > 1 ? 's' : '' ?>.</p>
+    <div class="row mt-3">
+      <?php foreach ($chapters as $chapter): ?>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><?= htmlspecialchars($chapter->Titulo) ?></h5>
+              <p class="card-text"><?= htmlspecialchars($chapter->Descripcion) ?></p>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php else: ?>
+    <div class="alert alert-warning mt-4" role="alert">
+      No hay capítulos disponibles para esta temporada.
+    </div>
+  <?php endif; ?>
+</main>
+
+<?php require 'layouts/footer.phtml'; ?>

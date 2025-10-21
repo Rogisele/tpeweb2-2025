@@ -1,0 +1,26 @@
+<?php require 'layouts/header.phtml' ?>
+
+<!-- formulario de alta de tarea -->
+<form action="do-login" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input required name="Usuario" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input required name="contraseña" type="password" class="form-control">
+            </div>
+        </div>
+        <div class="col-9 text-danger">
+            <?php if (!empty($error)): ?>
+                <?=$error?>
+            <?php endif; ?>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
+</form>
+
+<?php require 'layouts/footer.phtml' ?>
